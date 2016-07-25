@@ -24,7 +24,7 @@ class Collection extends StdCollection {
 
 	public function filterById( $arg ){
 		if($arg){
-			$this->addWhere("c.id = '" . (int)$arg. "' OR c.customerid = '" . (int)$arg ."' ");
+			$this->addWhere("c.id = '" . (int)$arg. "' ");
 		}
 	}
 

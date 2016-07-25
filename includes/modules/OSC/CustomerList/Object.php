@@ -4,8 +4,6 @@ namespace OSC\CustomerList;
 
 use
 	Aedea\Core\Database\StdObject as DbObj
-	, OSC\DoctorList\Collection
-		as  DoctorListCol
 	, OSC\CustomerType\Collection
 		as  CustomerTypeCol
 ;
@@ -14,7 +12,6 @@ class Object extends DbObj {
 		
 	protected
 		$customerTypeId
-		, $customerid
 		, $fullName
 		, $detail
 		, $sex
@@ -22,13 +19,7 @@ class Object extends DbObj {
 		, $tel
 		, $email
 		, $address
-		, $doctorId
-		, $relativeContact
-		, $relativeTel
-		, $doctorFields
 		, $customerType
-		, $barcode
-		, $country
 	;
 	
 	public function toArray( $params = array() ){
@@ -51,7 +42,6 @@ class Object extends DbObj {
 
 	public function __construct( $params = array() ){
 		parent::__construct($params);
-		$this->doctorFields = new DoctorListCol();
 		$this->customerType = new CustomerTypeCol();
 	}
 
@@ -82,8 +72,6 @@ class Object extends DbObj {
 		$this->customerType->setFilter('id', $this->getCustomerTypeId());
 		$this->customerType->populate();
 
-		$this->doctorFields->setFilter('id', $this->getDoctorId());
-		$this->doctorFields->populate();
 	}
 
 	public function update($id){

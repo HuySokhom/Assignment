@@ -6,12 +6,6 @@ app.controller(
         , function ($scope, Restful, Services){
             $scope.service = new Services();
             $scope.loading = true;
-            function getCompanyProfile(){
-                Restful.get('api/setting').success(function(data){
-                    $scope.company = data.elements[0];
-                });
-            };
-            getCompanyProfile();
             var params = {search_in_report: 'yes'};
             $scope.init = function(){
                 params.id = '';
