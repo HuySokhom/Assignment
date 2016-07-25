@@ -37,9 +37,10 @@ app.controller(
                 initPurchaseList(params);
             };
 
-            $scope.updateStatus = function(params){
+            $scope.updateStatus = function(params){console.log(params);
                 params.status === 1 ? params.status = 0 : params.status = 1;
                 Restful.patch('api/Purchase/' + params.id, params ).success(function(data) {
+                    console.log(data);
                     $scope.service.alertMessage('<strong>Success: </strong>', 'Update Success.', 'success');
                 });
             };

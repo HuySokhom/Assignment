@@ -25,7 +25,8 @@ app.controller(
                 var data = {
                     from_date: $scope.from_date,
                     to_date: $scope.to_date,
-                    vendor_id: vendorId
+                    vendor_id: vendorId,
+                    status: 'yes'
                 };
                 $scope.loading = false;
                 $scope.purchase = [];

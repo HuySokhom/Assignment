@@ -76,8 +76,33 @@ class RestApiPurchase extends RestApi{
 
     public function patch($params){
         $obj = new PurchaseObj();
+        $status = (int)$params['PATCH']['status'];
         $obj->setStatus($params['PATCH']['status']);
         $obj->setUpdateBy($_SESSION['user_name']);
+        if($status > 0){
+            foreach ($params['PATCH']['detail'] as $key => $value) {
+                tep_db_query("
+                    UPDATE
+                        products
+                    SET
+                        products_quantity = products_quantity + " . (int)$value['qty'] . "
+                    WHERE
+                        id = " . (int)$value['product_id'] . "
+                ");
+                var_dump($value['product_id']);
+            }
+        }else {
+            foreach ($params['PATCH']['detail'] as $key => $value) {
+                tep_db_query("
+                    UPDATE
+                        products
+                    SET
+                        products_quantity = products_quantity - " . (int)$value['qty'] . "
+                    WHERE
+                        id = " . (int)$value['product_id'] . "
+                ");
+            }
+        }
         $obj->setId($this->getId());
         $obj->updateStatus();
     }
