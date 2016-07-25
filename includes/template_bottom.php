@@ -59,10 +59,6 @@
 <script src="js/ng/app/vendor_list/controller/vendor_list_ctrl.js"></script>
 <script src="js/ng/app/vendor_list/directive/popup.js"></script>
 
-<!--  create invoice controllers  -->
-<script src="js/ng/app/create_invoice/controller/create_invoice_ctrl.js"></script>
-<script src="js/ng/app/create_invoice/directive/popup.js"></script>
-
 <!--  stock out controllers  -->
 <script src="js/ng/app/stock_out/controller/stock_out_ctrl.js"></script>
 <script src="js/ng/app/stock_out/directive/popup.js"></script>
@@ -81,9 +77,6 @@
 <!--  report pay bill controllers  -->
 <script src="js/ng/app/report_pay_bill/controller/report_pay_bill_ctrl.js"></script>
 <script src="js/ng/app/report_payment_summary/controller/report_pay_bill_summary_ctrl.js"></script>
-
-<!--  report invoice controllers  -->
-<script src="js/ng/app/report_invoice/controller/report_invoice_ctrl.js"></script>
 
 <!--  pay bill controllers  -->
 <script src="js/ng/app/received_payment/controller/received_payment_ctrl.js"></script>
@@ -110,9 +103,6 @@
 
 <!--  report vendor balance controllers  -->
 <script src="js/ng/app/report_vendor_balance/controller/report_vendor_balance_ctrl.js"></script>
-
-<!-- appointment controllers  -->
-<script src="js/ng/app/report_payroll/controller/report_payroll_ctrl.js"></script>
 
 <script src="js/ng/app/report_daily_case/controller/report_daily_case_ctrl.js"></script>
     </body>

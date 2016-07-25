@@ -10,34 +10,21 @@ if (!tep_session_is_registered('id')) {
 <meta charset="<?php echo CHARSET; ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-se=1cal">
-<title>IMI Management System</title>
-    <link rel="shortcut icon" href="images/banners/logo.ico">
+<title>CCHR Assignment</title>
+    <link rel="shortcut icon" href="images/favicon-16.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Fonts -->
-<!--    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>-->
-<!--    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>-->
-    <!-- CSS Libs https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css -->
     <link rel="stylesheet" type="text/css" href="css/lib_template/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/date-time-picker/angular-datepicker.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.css">
-<!--    <link rel="stylesheet" type="text/css" href="css/lib_template/animate.min.css">-->
     <link rel="stylesheet" type="text/css" href="css/lib_template/bootstrap-switch.min.css">
     <!-- CSS App -->
-<!--    <link rel="stylesheet" type="text/css" href="css/lib_template/jquery-ui.min.css">-->
     <link rel="stylesheet" type="text/css" href="css/lib_template/style.css">
     <link rel="stylesheet" type="text/css" href="css/lib_template/select.css">
     <link rel="stylesheet" type="text/css" href="css/lib_template/flat-blue.css">
-    <link rel="stylesheet" type="text/css" href="css/lib_template/select2.min.css">
     <!-- Select2 theme -->
     <link rel="stylesheet" href="css/lib_template/select2.css">
-    <link rel="stylesheet" type="text/css" href="css/lib_template/selectize.default.css">
-<!--    <link rel="stylesheet" type="text/css" href="css/date-time-picker/helper.css">-->
     <link rel="stylesheet" type="text/css" href="css/print_table.css">
 </head>
-<?php
-    $queryBirthday = tep_db_query("select count(*) from customers where DAY(dob) = DAY(NOW()) AND MONTH(dob) = MONTH(NOW())");
-    $countBirthDay = tep_db_fetch_array($queryBirthday);
-?>
 <body class="flat-blue">
 <div class="app-container">
     <div class="row content-container">
@@ -147,11 +134,9 @@ if (!tep_session_is_registered('id')) {
                                         <li><a href="#/pay_bill">Vendor Payment(A/P)</a></li>
                                         <li><a href="#/account_payable_summary">Vendor Payment Report</a></li>
                                         <li><a href="#/vendor_balance">Vendor Balance Report</a></li>
-<!--                                        <li><a href="#/purchase_order">Purchase Order</a></li>-->
                                         <li><a href="#/purchase">Purchase</a></li>
                                         <li><a href="#/report_purchase">Purchase Detail Report</a></li>
                                         <li><a href="#/report_purchase_summary">Purchase Summary Report</a></li>
-<!--                                        <li><a href="#/account_payable">Account Payable Report</a></li>-->
                                     </ul>
                                 </div>
                             </div>
@@ -169,7 +154,6 @@ if (!tep_session_is_registered('id')) {
                                         <li><a href="#/product_list">Product List</a></li>
                                         <li><a href="#/stock_out">Sale</a></li>
                                         <li><a href="#/stock_report">Stock Report</a></li>
-<!--                                        <li><a href="#/report_sale">Stock Out Report</a></li>-->
                                         <li><a href="#/report_sale_summary">Sale Summary Report</a></li>
                                     </ul>
                                 </div>
