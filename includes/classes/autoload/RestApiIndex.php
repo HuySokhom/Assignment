@@ -9,15 +9,13 @@ class RestApiIndex extends RestApi {
 		$customer_query = tep_db_query("select count(id) as total from customers where status = 1");
 		$customer = tep_db_fetch_array($customer_query);
 
-		$sum_balance_customer = tep_db_query("
+		$user_query = tep_db_query("
 			SELECT
-				SUM(balance) as total
+				count(id) as total
 			FROM
-				invoice
-			WHERE
-				status = 1
+				administrators
 		");
-		$total_balance_cus = tep_db_fetch_array($sum_balance_customer);
+		$total_user = tep_db_fetch_array($user_query);
 
 		$sum_balance_vendor = tep_db_query("
 			SELECT
@@ -33,7 +31,7 @@ class RestApiIndex extends RestApi {
 			array(
 				product_total => $products['total'],
 				customer_total => $customer['total'],
-				customer_balance => $total_balance_cus['total'],
+				user => $total_user['total'],
 				vendor_balance => $total_balance_vendor['total']
 			)
 		);
