@@ -36,21 +36,13 @@ class Object extends DbObj {
 			'include' => array(
 				'id',
 				'full_name',
-				'detail',
 				'customer_type_id',
-				'customerid',
 				'sex',
 				'dob',
 				'status',
 				'tel',
-				'email',
-				'address',
-				'relative_contact',
-				'doctor_fields',
 				'customer_type',
-				'relative_tel',
-				'country',
-				'barcode',
+				'address',
 			)
 		);
 
@@ -67,19 +59,11 @@ class Object extends DbObj {
 		$q = $this->dbQuery("
 			SELECT
 				full_name,
-				detail,
 				customer_type_id,
-				customerid,
 				sex,
-				doctor_id,
 				dob,
 				tel,
-				email,
 				address,
-				relative_contact,
-				relative_tel,
-				barcode,
-				country,
 				status
 			FROM
 				customers
@@ -113,17 +97,9 @@ class Object extends DbObj {
 				full_name = '" . $this->getFullName() . "',
 				customer_type_id = '" . $this->getCustomerTypeId() . "',
 				dob = '" . $this->getDob() . "',
-				doctor_id = '" . $this->getDoctorId() . "',
 				tel = '" . $this->getTel() . "',
 				address = '" . $this->getAddress() . "',
-				detail = '" . $this->getDetail() . "',
-				email = '" . $this->getEmail() . "',
-				relative_contact = '" . $this->getRelativeContact() . "',
-				relative_tel = '" . $this->getRelativeTel() . "',
 				sex = '" . $this->getSex() . "',
-				detail = '" . $this->getDetail() . "',
-				barcode = '" . $this->getBarcode() . "',
-				country = '" . $this->getCountry() . "',
 				update_by = '" . $this->getUpdateBy() . "'
 			WHERE
 				id = '" . (int)$id . "'
@@ -160,39 +136,25 @@ class Object extends DbObj {
 	public function insert(){
 		$this->dbQuery("
 			INSERT INTO
-				tab_customer
+				customers
 			(
 				full_name,
-				detail,
 				address,
 				tel,
 				dob,
-				doctor_id,
-				relative_contact,
-				relative_tel,
-				email,
 				customer_type_id,
 				sex,
-				country,
-				barcode,
 				create_date,
 				create_by
 			)
 				VALUES
 			(
 				'" . $this->getFullName() . "',
-				'" . $this->getDetail() . "',
 				'" . $this->getAddress() . "',
 				'" . $this->getTel() . "',
 				'" . $this->getDob() . "',
-				'" . $this->getDoctorId() . "',
-				'" . $this->getRelativeContact() . "',
-				'" . $this->getRelativeTel() . "',
-				'" . $this->getEmail() . "',
 				'" . $this->getCustomerTypeId() . "',
 				'" . $this->getSex() . "',
-				'" . $this->getCountry() . "',
-				'" . $this->getBarcode() . "',
  				NOW(),
  				'" . $this->getCreateBy() . "'
 			)

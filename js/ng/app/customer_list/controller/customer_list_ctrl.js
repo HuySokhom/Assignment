@@ -11,6 +11,7 @@ app.controller(
                 Restful.get(url, params).success(function(data){
                     $scope.totalItems = data.count;
                     $scope.customerList = data;
+                    console.log(data);
                 });
                 // start init Doctor List
                 Restful.get('api/DoctorList', {status : 1}).success(function(data){
@@ -31,20 +32,9 @@ app.controller(
                     typeId = $scope.params.customer_type[0].id;
                 }
                 $scope.customer_type_id = typeId;
-                $scope.barcode = $scope.params.barcode;
-                $scope.country = $scope.params.country;
                 $scope.address = $scope.params.address;
                 $scope.dob = $scope.params.dob;
-                $scope.email = $scope.params.email;
                 $scope.tel = $scope.params.tel;
-                $scope.relative_contact = $scope.params.relative_contact;
-                $scope.relative_tel = $scope.params.relative_tel;
-                $scope.detail = $scope.params.detail;
-                var doctorId = '';
-                if($scope.params.doctor_fields.length > 0){
-                    doctorId = $scope.params.doctor_fields[0].id;
-                }
-                $scope.doctor_id = doctorId;
                 $scope.id = $scope.params.id;
                 $('#customer-list-popup').modal('show');
             };
@@ -54,16 +44,9 @@ app.controller(
                     tel: $scope.tel,
                     customer_type_id: $scope.customer_type_id,
                     sex: $scope.sex,
-                    relative_contact: $scope.relative_contact,
-                    relative_tel: $scope.relative_tel,
                     full_name: $scope.full_name,
-                    doctor_id: $scope.doctor_id,
-                    detail: $scope.detail,
-                    email: $scope.email,
                     address: $scope.address,
                     dob: $scope.dob,
-                    barcode: $scope.barcode,
-                    country: $scope.country,
                 };
 
                 $scope.disable = false;
@@ -78,6 +61,7 @@ app.controller(
                 }else {
                     Restful.save( url , data).success(function (data) {
                         $scope.init();
+                        console.log(data);
                         $('#customer-list-popup').modal('hide');
                         $scope.close();
                         $scope.service.alertMessage('<strong>Success: </strong>', 'Save Success.', 'success');

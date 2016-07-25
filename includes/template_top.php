@@ -35,7 +35,7 @@ if (!tep_session_is_registered('id')) {
     <link rel="stylesheet" type="text/css" href="css/print_table.css">
 </head>
 <?php
-    $queryBirthday = tep_db_query("select count(*) from tab_customer where DAY(dob) = DAY(NOW()) AND MONTH(dob) = MONTH(NOW())");
+    $queryBirthday = tep_db_query("select count(*) from customers where DAY(dob) = DAY(NOW()) AND MONTH(dob) = MONTH(NOW())");
     $countBirthDay = tep_db_fetch_array($queryBirthday);
 ?>
 <body class="flat-blue">

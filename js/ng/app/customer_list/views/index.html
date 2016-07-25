@@ -9,7 +9,7 @@
             data-target="#customer-list-popup"
         >
             <span class="fa fa-plus-circle"></span>
-            Add New Customer
+            Add New
         </button>
         Total record: {{totalItems}}
         <br/>
@@ -32,16 +32,10 @@
                 Id
             </th>
             <th>
-                Customer Id
-            </th>
-            <th>
                 Name
             </th>
             <th>
                 Type
-            </th>
-            <th>
-                Barcode
             </th>
             <th>
                 Sex
@@ -52,9 +46,6 @@
             <th>
                 Address
             </th>
-            <th>
-                Email
-            </th>
             <th width="150px">
                 Action
             </th>
@@ -64,16 +55,10 @@
                     <span data-ng-bind="customer.id"></span>
                 </td>
                 <td>
-                    <span data-ng-bind="customer.customerid"></span>
-                </td>
-                <td>
                     <span data-ng-bind="customer.full_name"></span>
                 </td>
                 <td>
                     <span data-ng-bind="customer.customer_type[0].name"></span>
-                </td>
-                <td>
-                    <span data-ng-bind="customer.barcode"></span>
                 </td>
                 <td>
                     <span data-ng-bind="customer.sex"></span>
@@ -83,9 +68,6 @@
                 </td>
                 <td>
                     <span data-ng-bind="customer.address"></span>
-                </td>
-                <td>
-                    <span data-ng-bind="customer.email"></span>
                 </td>
                 <td>
                     <button class="btn btn-default" data-ng-click="edit(customer);">

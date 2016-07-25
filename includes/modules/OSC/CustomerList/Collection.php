@@ -9,7 +9,7 @@ class Collection extends StdCollection {
 	public function __construct( $params = array() ){
 		parent::__construct($params);
 		
-		$this->addTable('tab_customer', 'c');
+		$this->addTable('customers', 'c');
 		$this->idField = 'c.id';
 		$this->setDistinct(true);
 		

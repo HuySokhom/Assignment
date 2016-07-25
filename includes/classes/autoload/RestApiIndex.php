@@ -6,7 +6,7 @@ class RestApiIndex extends RestApi {
 		$products_query = tep_db_query("select count(id) as total from products where status = 1");
 		$products = tep_db_fetch_array($products_query);
 
-		$customer_query = tep_db_query("select count(id) as total from tab_customer where status = 1");
+		$customer_query = tep_db_query("select count(id) as total from customers where status = 1");
 		$customer = tep_db_fetch_array($customer_query);
 
 		$sum_balance_customer = tep_db_query("
