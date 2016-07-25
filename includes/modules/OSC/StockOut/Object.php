@@ -5,6 +5,7 @@ namespace OSC\StockOut;
 use
 	Aedea\Core\Database\StdObject as DbObj
 	, OSC\StockOutDetail\Collection as StockOutDetailCol
+	, OSC\CustomerListOnly\Collection as CustomerCol
 ;
 
 class Object extends DbObj {
@@ -17,11 +18,13 @@ class Object extends DbObj {
 		, $remain
 		, $note
 		, $detail
+		, $customer
 	;
 
 	public function __construct( $params = array() ){
 		parent::__construct($params);
 		$this->detail = new StockOutDetailCol();
+		$this->customer = new CustomerCol();
 	}
 
 	public function toArray( $params = array() ){
@@ -34,7 +37,8 @@ class Object extends DbObj {
 				'payment',
 				'remain',
 				'note',
-				'detail'
+				'detail',
+				'customer'
 			)
 		);
 
@@ -66,6 +70,9 @@ class Object extends DbObj {
 
 		$this->detail->setFilter('stock_out_id', $this->getId());
 		$this->detail->populate();
+
+		$this->customer->setFilter('id', $this->getCustomersId());
+		$this->customer->populate();
 	}
 
 	public function insert(){
@@ -156,4 +163,11 @@ class Object extends DbObj {
 		return $this->stockOutDate;
 	}
 
+	public function setCustomer( $string ){
+		$this->customer = $string;
+	}
+
+	public function getCustomer(){
+		return $this->customer;
+	}
 }

@@ -112,9 +112,6 @@ if (!tep_session_is_registered('id')) {
                                         <li><a href="#/customer_type">Customer Type</a></li>
                                         <li><a href="#/customer_list">Customer List</a></li>
                                         <li><a href="#/customer_report">Customer Report</a></li>
-                                        <li><a href="#/customer_balance">Customer Balance Report</a></li>
-                                        <li><a href="#/received_payment">Customer Payment</a></li>
-                                        <li><a href="#/account_receivable_summary">Customer Payment Report (A/R)</a></li>
                                     </ul>
                                 </div>
                             </div>

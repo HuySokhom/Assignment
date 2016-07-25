@@ -28,7 +28,7 @@ class Object extends DbObj {
 			SELECT
 				full_name
 			FROM
-				tab_customer
+				customers
 			WHERE
 				id = '" . (int)$this->getId() . "'	
 		");

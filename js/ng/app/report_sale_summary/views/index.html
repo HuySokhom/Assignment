@@ -59,13 +59,7 @@
 						No
 					</th>
 					<th style="background: #ddd;text-align: center;border: 1px solid #000000;padding: 5px;">
-						Request Name
-					</th>
-					<th style="background: #ddd;text-align: center;border: 1px solid #000000;padding: 5px;">
-						Approve Name
-					</th>
-					<th style="background: #ddd;text-align: center;border: 1px solid #000000;padding: 5px;">
-						Delivery To
+						Customer Name
 					</th>
 					<th style="background: #ddd;text-align: center;border: 1px solid #000000;padding: 5px;">
 						Sale Date
@@ -79,13 +73,7 @@
 						{{$index +1}}
 					</td>
 					<td style="border: 1px solid #000000;padding: 1px;">
-						{{item.request_by_name}}
-					</td>
-					<td style="border: 1px solid #000000;padding: 1px;">
-						{{item.approve_by_name}}
-					</td>
-					<td style="border: 1px solid #000000;padding: 1px;">
-						{{item.delivery_to}}
+						{{item.customer[0].full_name}}
 					</td>
 					<td style="border: 1px solid #000000;padding: 1px;">
 						{{item.stock_out_date}}
@@ -95,7 +83,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td style="border: 1px solid #000000;padding: 1px;" colspan="5" align="right">
+					<td style="border: 1px solid #000000;padding: 1px;" colspan="3" align="right">
 						<b>Grand Total:</b>
 					</td>
 					<td>
