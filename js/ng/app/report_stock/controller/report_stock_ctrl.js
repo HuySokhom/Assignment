@@ -6,12 +6,7 @@ app.controller(
         , function ($scope, Restful, Services){
             $scope.service = new Services();
             $scope.loading = true;
-            function getCompanyProfile(){
-                Restful.get('api/setting').success(function(data){
-                    $scope.company = data.elements[0];
-                });
-            };
-            getCompanyProfile();
+
             $scope.init = function(params){
                 var pId = '';
                 var p_type_Id = '';
@@ -70,7 +65,7 @@ app.controller(
                 var newWin= window.open("");
                 newWin.document.write('' +
                     '<html><head>' +
-                    '<link href="css/lib_template/bootstrap.min.css" rel="stylesheet" type="text/css">' +
+                    '<link href="css/print_table.css" rel="stylesheet" type="text/css">' +
                     '</head>' +
                     '<body>' + divToPrint.innerHTML + '</body>' +
                     '</html>'

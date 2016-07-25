@@ -33,22 +33,16 @@ app.controller(
 				$scope.remaining = '';
 			}
 		};
-		$scope.date = moment().format('DD-MM-YYYY');
+		$scope.date = moment().format('YYYY-MM-DD');
 		$scope.sub_total = 0;
 		$scope.input_money = 0;
 		$scope.remaining = 0;
 		$scope.save = function(){
-			if( !angular.isDefined($scope.staff_request.selected) ){
+			if( !angular.isDefined($scope.customers_list.selected) ){
 				return $scope.service.alertMessage(
-					'Warning:','No Requested By. Please Select Requested By.','warning'
+					'Warning:','No Customer. Please Select Customer.','warning'
 				);
 			}
-			if( !angular.isDefined($scope.staff_approve.selected) ){
-				return $scope.service.alertMessage(
-					'Warning:','No Approved By. Please Select Approved By.','warning'
-				);
-			}
-
 			if($scope.listData.length == 0){
 				return $scope.service.alertMessage(
 					'Warning:','No Product In List. Please Add Product.','warning'
@@ -62,11 +56,7 @@ app.controller(
 					payment: $scope.input_money,
 					remain: $scope.remaining,
 					note: $scope.note,
-					request_by_id: $scope.staff_request.selected.id,
-					request_by_name: $scope.staff_request.selected.name,
-					approve_by_id: $scope.staff_approve.selected.id,
-					approve_by_name: $scope.staff_approve.selected.name,
-					delivery_to: $scope.delivery_to
+					customers_id: $scope.customers_list.selected.id,
 				}],
 				stock_detail: $scope.listData
 			};
@@ -80,15 +70,13 @@ app.controller(
 		};
 
 		function clearStaff(){
-			$scope.staff_approve = {};
-			$scope.staff_request = {};
+			$scope.customers_list = {};
 			$scope.note = '';
 			$scope.disable = false;
 			$scope.listData = [];
 			$scope.sub_total = 0;
 			$scope.input_money = '';
 			$scope.remaining = 0;
-			$scope.delivery_to = '';
 		};
 
 		$scope.add = function(){
@@ -158,13 +146,12 @@ app.controller(
 			$scope.total = '';
 		};
 
-		// staff filter
-		$scope.staff_approve = {};
-		$scope.staff_request = {};
-		$scope.refreshStaffList = function(staff_list) {
-			var params = {name: staff_list, search_in_invoice: 'yes'};
-			return Restful.get('api/Staff', params).then(function(response) {
-				$scope.staffs = response.data.elements;
+		// customer filter
+		$scope.customers_list = {};
+		$scope.refreshCustomerList = function(customers_list) {
+			var params = {name: customers_list, search_in_invoice: 'yes'};
+			return Restful.get('api/CustomerList', params).then(function(response) {
+				$scope.customers = response.data.elements;
 			});
 		};
 

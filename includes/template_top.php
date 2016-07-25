@@ -115,8 +115,6 @@ if (!tep_session_is_registered('id')) {
                                         <li><a href="#/customer_balance">Customer Balance Report</a></li>
                                         <li><a href="#/received_payment">Customer Payment</a></li>
                                         <li><a href="#/account_receivable_summary">Customer Payment Report (A/R)</a></li>
-                                        <li><a href="#/create_invoice">Issue Invoice</a></li>
-                                        <li><a href="#/report_invoice">Issue Invoice Report</a></li>
                                     </ul>
                                 </div>
                             </div>

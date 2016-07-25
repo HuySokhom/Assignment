@@ -12,59 +12,36 @@
 		<input type="hidden" id="sel">
 		<table class="table table-bordered">
 			<tr>
-				<td>
-					Requested By:
+				<td width="150px">
+					Customer:
 				</td>
-				<td>
+				<td width="200px">
 					<ui-select
-						ng-model="staff_request.selected"
+						ng-model="customers_list.selected"
 						theme="select2"
 						data-ng-disabled="disabled"
 						reset-search-input="false"
 						style="width: 300px;"
 					>
-						<ui-select-match placeholder="Select or Search a Requested By in the list...">
-							{{$select.selected.name}}
+						<ui-select-match placeholder="Select or Search a Customers...">
+							{{$select.selected.full_name}}
 						</ui-select-match>
 						<ui-select-choices
-								repeat="staff_request in staffs track by $index"
-								refresh="refreshStaffList($select.search)"
-								refresh-delay="0"
-								>
-							<div data-ng-bind-html="staff_request.name | highlight: $select.search"></div>
-						</ui-select-choices>
-					</ui-select>
-				</td>
-				<td>
-					Approved By:
-				</td>
-				<td>
-					<ui-select
-						ng-model="staff_approve.selected"
-						theme="select2"
-						data-ng-disabled="disabled"
-						reset-search-input="false"
-						style="width: 300px;"
-					>
-						<ui-select-match placeholder="Select or Search a Approved By in the list...">
-							{{$select.selected.name}}
-						</ui-select-match>
-						<ui-select-choices
-							repeat="staff_approve in staffs track by $index"
-							refresh="refreshStaffList($select.search)"
+							repeat="customers_list in customers track by $index"
+							refresh="refreshCustomerList($select.search)"
 							refresh-delay="0"
 						>
-							<div data-ng-bind-html="staff_approve.name | highlight: $select.search"></div>
+							<div data-ng-bind-html="customers_list.full_name | highlight: $select.search"></div>
 						</ui-select-choices>
 					</ui-select>
 				</td>
-				<td>
+				<td width="60px">
 					Date:
 				</td>
 				<td>
 					<div
 						cambodia-date-picker
-						date-format="dd-MM-y"
+						date-format="y-MM-dd"
 						class="col-md-3"
 					>
 						<input
@@ -79,18 +56,6 @@
 				</td>
 			</tr>
 			<tr>
-				<td>
-					Delivery To:
-				</td>
-				<td>
-					<input
-						type="text"
-						class="form-control"
-						required
-						data-ng-model="delivery_to"
-						placeholder="Delivery To"
-					/>
-				</td>
 				<td>
 					Note:
 				</td>

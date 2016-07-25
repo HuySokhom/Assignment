@@ -11,12 +11,7 @@ class Object extends DbObj {
 		
 	protected
 		$stockOutDate
-		, $customerId
-		, $requestById
-		, $requestByName
-		, $approveById
-		, $approveByName
-		, $deliveryTo
+		, $customersId
 		, $grandTotal
 		, $payment
 		, $remain
@@ -34,11 +29,7 @@ class Object extends DbObj {
 			'include' => array(
 				'id',
 				'stock_out_date',
-				'request_by_id',
-				'request_by_name',
-				'approve_by_id',
-				'approve_by_name',
-				'delivery_to',
+				'customers_id',
 				'grand_total',
 				'payment',
 				'remain',
@@ -54,14 +45,10 @@ class Object extends DbObj {
 		$q = $this->dbQuery("
 			SELECT
 				stock_out_date,
-				request_by_id,
-				request_by_name,
-				approve_by_id,
-				approve_by_name,
 				grand_total,
 				payment,
 				remain,
-				delivery_to,
+				customers_id,
 				note
 			FROM
 				stock_out
@@ -87,30 +74,24 @@ class Object extends DbObj {
 				stock_out
 			(
 				stock_out_date,
-				delivery_to,
-				request_by_id,
-				request_by_name,
-				approve_by_id,
-				approve_by_name,
+				customers_id,
 				grand_total,
 				payment,
 				remain,
 				note,
-				create_by
+				create_by,
+				create_date
 			)
 				VALUES
 			(
 				'" . $this->getStockOutDate() . "',
-				'" . $this->getDeliveryTo() . "',
-				'" . $this->getRequestById() . "',
-				'" . $this->getRequestByName() . "',
-				'" . $this->getApproveById() . "',
-				'" . $this->getApproveByName() . "',
+				'" . $this->getCustomersId() . "',
 				'" . $this->getGrandTotal() . "',
 				'" . $this->getPayment() . "',
 				'" . $this->getRemain() . "',
 				'" . $this->getNote() . "',
-				'" . $this->getCreateBy() . "'
+				'" . $this->getCreateBy() . "',
+				NOW()
 			)
 		");
 		$this->setId( $this->dbInsertId() );
@@ -159,20 +140,12 @@ class Object extends DbObj {
 		return $this->grandTotal;
 	}
 
-	public function setRequestById( $string ){
-		$this->requestById = (int)$string;
+	public function setCustomersId( $string ){
+		$this->customersId = $string;
 	}
 
-	public function getRequestById(){
-		return $this->requestById;
-	}
-
-	public function setDeliveryTo( $string ){
-		$this->deliveryTo = $string;
-	}
-
-	public function getDeliveryTo(){
-		return $this->deliveryTo;
+	public function getCustomersId(){
+		return $this->customersId;
 	}
 
 	public function setStockOutDate( $date ){
@@ -181,30 +154,6 @@ class Object extends DbObj {
 	
 	public function getStockOutDate(){
 		return $this->stockOutDate;
-	}
-
-	public function setRequestByName( $string ){
-		$this->requestByName = $string;
-	}
-
-	public function getRequestByName(){
-		return $this->requestByName;
-	}
-
-	public function setApproveById( $string ){
-		$this->approveById = (int)$string;
-	}
-
-	public function getApproveById(){
-		return $this->approveById;
-	}
-
-	public function setApproveByName( $string ){
-		$this->approveByName = $string;
-	}
-
-	public function getApproveByName(){
-		return $this->approveByName;
 	}
 
 }
