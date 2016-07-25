@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-07-25 16:28:38
+Date: 2016-07-25 17:00:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1006,7 +1006,7 @@ CREATE TABLE `payment_master` (
   `create_by` varchar(64) DEFAULT NULL,
   `create_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of payment_master
@@ -1018,6 +1018,8 @@ INSERT INTO `payment_master` VALUES ('4', 'test_vendor_payment_no', '0004', '20'
 INSERT INTO `payment_master` VALUES ('5', 'test_vendor_payment_no', '456456456456+456', '20', 'Testing', '2016-03-07 00:00:00', '', '0.00', '', '0', '0.00', 'ACLIDA', null, '1900.00', '2000.00', '1900.00', 'admin', '2016-03-07 12:17:14');
 INSERT INTO `payment_master` VALUES ('6', 'test_vendor_payment_no', '521512', '20', 'Testing', '2016-03-07 00:00:00', '', '0.00', '', '0', '0.00', '', null, '100.00', '1900.00', '1800.00', 'admin', '2016-03-07 12:23:01');
 INSERT INTO `payment_master` VALUES ('7', 'test_vendor_payment_no', 'dsdsg', '20', 'Testing', '2016-05-26 00:00:00', '', '0.00', '', '0', '0.00', 'ACLIDA', '0.00', '100.00', '2000.00', '1900.00', 'admin', '2016-05-26 11:19:49');
+INSERT INTO `payment_master` VALUES ('8', 'test_vendor_payment_no', 'dsa', '19', 'XV', '2016-07-25 00:00:00', '', '0.00', '', '0', '0.00', '', '0.00', '7429.00', '7429.00', '0.00', 'admin', '2016-07-25 16:38:49');
+INSERT INTO `payment_master` VALUES ('9', 'test_vendor_payment_no', 'asfsdf', '20', 'Testing', '2016-07-25 00:00:00', '', '0.00', '', '0', '0.00', '', '0.00', '120.00', '200.00', '80.00', 'admin', '2016-07-25 16:39:07');
 
 -- ----------------------------
 -- Table structure for `payment_master_detail`
@@ -1032,7 +1034,7 @@ CREATE TABLE `payment_master_detail` (
   `balance` decimal(15,2) DEFAULT NULL,
   `create_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of payment_master_detail
@@ -1044,6 +1046,8 @@ INSERT INTO `payment_master_detail` VALUES ('4', '4', '0004', '3000.00', '1000.0
 INSERT INTO `payment_master_detail` VALUES ('5', '5', '456456456456+456', '3000.00', '1100.00', '1900.00', '2016-03-07 12:17:14');
 INSERT INTO `payment_master_detail` VALUES ('6', '6', '521512', '3000.00', '1200.00', '1800.00', '2016-03-07 12:23:01');
 INSERT INTO `payment_master_detail` VALUES ('7', '7', 'dsdsg', '200.00', '100.00', '100.00', '2016-05-26 11:19:49');
+INSERT INTO `payment_master_detail` VALUES ('8', '8', 'dsa', '7429.00', '7429.00', '0.00', '2016-07-25 16:38:49');
+INSERT INTO `payment_master_detail` VALUES ('9', '9', 'asfsdf', '252.00', '172.00', '80.00', '2016-07-25 16:39:07');
 
 -- ----------------------------
 -- Table structure for `products`
@@ -1101,7 +1105,7 @@ INSERT INTO `products` VALUES ('162', '8', 'Tea Port 123', '139', 'scv gasdfh \n
 INSERT INTO `products` VALUES ('163', '13', 'ABC', '0', 'jhjhjhjk', '99999', null, null, null, '0.00', '1.00', null, null, '1', '0', null, '0', 'admin', null, '2016-03-03 08:52:49', null);
 INSERT INTO `products` VALUES ('164', '9', 'ខោខាប៊ូយ', '100', 'usa', '00001', null, null, null, '3.00', '4.00', null, null, '1', '0', null, '0', 'admin', null, '2016-03-30 15:18:09', '2016-03-30 15:18:55');
 INSERT INTO `products` VALUES ('165', '9', 'oo', '100', '', '0800979797', null, null, null, '0.30', '1.00', null, null, '1', '0', null, '0', 'admin', null, '2016-04-02 14:07:53', null);
-INSERT INTO `products` VALUES ('166', '2', 'dsad', '1796', '', '324r2323', null, null, null, '323.00', '323.00', null, null, '1', '0', null, '0', 'admin', null, '2016-07-25 14:53:32', '2016-07-25 16:00:20');
+INSERT INTO `products` VALUES ('166', '2', 'dsad', '1030', '', '324r2323', null, null, null, '323.00', '323.00', null, null, '1', '0', null, '0', 'admin', null, '2016-07-25 14:53:32', '2016-07-25 16:54:46');
 
 -- ----------------------------
 -- Table structure for `products_type`
@@ -1138,16 +1142,21 @@ CREATE TABLE `purchase_detail` (
   `product_name` varchar(127) DEFAULT NULL,
   `description` varchar(225) DEFAULT NULL,
   `qty` int(11) NOT NULL,
+  `barcode` varchar(127) DEFAULT NULL,
   `unit_price` decimal(15,2) NOT NULL,
   `price_in` decimal(15,2) NOT NULL,
   `price_out` decimal(15,2) NOT NULL,
   `total` decimal(15,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of purchase_detail
 -- ----------------------------
+INSERT INTO `purchase_detail` VALUES ('1', '2', '166', 'dsad', '', '23', '324r2323', '323.00', '0.00', '0.00', '7429.00');
+INSERT INTO `purchase_detail` VALUES ('2', '3', '166', 'dsad', '', '81', '324r2323', '323.00', '0.00', '0.00', '26163.00');
+INSERT INTO `purchase_detail` VALUES ('3', '4', '166', 'dsad', '', '100', '324r2323', '323.00', '0.00', '0.00', '32300.00');
+INSERT INTO `purchase_detail` VALUES ('4', '5', '166', 'dsad', '', '111', '324r2323', '323.00', '0.00', '0.00', '35853.00');
 
 -- ----------------------------
 -- Table structure for `purchase_master`
@@ -1164,15 +1173,21 @@ CREATE TABLE `purchase_master` (
   `remain` decimal(15,2) NOT NULL,
   `payment_next` decimal(15,2) NOT NULL COMMENT 'this field for show when pay bill to vendor it easy to angularjs object for caculate ',
   `note` varchar(250) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '0',
   `create_by` varchar(64) DEFAULT NULL,
   `create_date` datetime DEFAULT NULL,
   `update_by` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of purchase_master
 -- ----------------------------
+INSERT INTO `purchase_master` VALUES ('1', '23332', '20', 'Testing', '2016-07-25 00:00:00', '252.00', '52.00', '80.00', '120.00', '32', '1', 'admin', '2016-07-25 16:30:34', 'admin');
+INSERT INTO `purchase_master` VALUES ('2', '23r2f', '19', 'XV', '2016-07-25 00:00:00', '7429.00', '0.00', '0.00', '7429.00', '32r', '1', 'admin', '2016-07-25 16:32:12', 'admin');
+INSERT INTO `purchase_master` VALUES ('3', 'f54df', '17', 'Youn Soun', '2016-07-25 00:00:00', '26163.00', '0.00', '26163.00', '0.00', 'fd', '0', 'admin', '2016-07-25 16:40:49', 'admin');
+INSERT INTO `purchase_master` VALUES ('4', 'saf', '19', 'XV', '2016-07-25 00:00:00', '32300.00', '0.00', '32300.00', '0.00', '', '0', 'admin', '2016-07-25 16:50:22', 'admin');
+INSERT INTO `purchase_master` VALUES ('5', 'asgda', '21', 'sda', '2016-07-25 00:00:00', '35853.00', '0.00', '35853.00', '0.00', '', '1', 'admin', '2016-07-25 16:52:23', 'admin');
 
 -- ----------------------------
 -- Table structure for `receive_payment`
@@ -1245,7 +1260,7 @@ INSERT INTO `sessions` VALUES ('4r2lq53l3sh4g0hok9fptc7gb7', '1464948654', 'sess
 INSERT INTO `sessions` VALUES ('6mroattsbp4g61n24o4b8qifc2', '1464947441', 'sessiontoken|s:32:\"ac37662e8b5e08c5a22140b9271e531b\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";N;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:2:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}i:1;a:4:{s:4:\"page\";s:13:\"api/index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}user_name|s:5:\"admin\";id|s:1:\"1\";role|N;');
 INSERT INTO `sessions` VALUES ('6qhlp5qmvgrfht09kpke77pf52', '1465016480', 'sessiontoken|s:32:\"647d107d19b093dd1c3d60b830f02c05\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";N;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:2:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}i:1;a:4:{s:4:\"page\";s:13:\"api/index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:5:{s:11:\"customer_id\";s:0:\"\";s:9:\"doctor_id\";s:0:\"\";s:9:\"from_date\";s:10:\"2016/06/02\";s:6:\"status\";s:1:\"1\";s:7:\"to_date\";s:10:\"2016/06/04\";}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}user_name|s:5:\"admin\";id|s:1:\"1\";role|N;');
 INSERT INTO `sessions` VALUES ('eklhfm77abtov3hnsrhm2pvs91', '1465521510', 'sessiontoken|s:32:\"c9afd38e621d3e4020d3a565d69511c5\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";N;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:2:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}i:1;a:4:{s:4:\"page\";s:13:\"api/index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:1:{s:6:\"status\";s:1:\"1\";}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}user_name|s:5:\"admin\";id|s:1:\"1\";role|N;');
-INSERT INTO `sessions` VALUES ('ib2qrfeumklvbdahtcg8sf3hm6', '1469438869', 'sessiontoken|s:32:\"3db9e8bdcadde1e84b05fc64257f31fb\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";N;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:2:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}i:1;a:4:{s:4:\"page\";s:13:\"api/index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}user_name|s:5:\"admin\";id|s:1:\"1\";role|N;');
+INSERT INTO `sessions` VALUES ('ib2qrfeumklvbdahtcg8sf3hm6', '1469440491', 'sessiontoken|s:32:\"3db9e8bdcadde1e84b05fc64257f31fb\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";N;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:2:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}i:1;a:4:{s:4:\"page\";s:13:\"api/index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}user_name|s:5:\"admin\";id|s:1:\"1\";role|N;');
 INSERT INTO `sessions` VALUES ('lsms0n48iprdqunfqqlm6s2va5', '1465015729', 'sessiontoken|s:32:\"013ed3921f290c80d9e406a6dfff0962\";cart|O:12:\"shoppingCart\":4:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:1:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}');
 
 -- ----------------------------
@@ -1285,7 +1300,7 @@ CREATE TABLE `stock_out` (
   `create_date` datetime NOT NULL,
   `modifies_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of stock_out
@@ -1298,6 +1313,7 @@ INSERT INTO `stock_out` VALUES ('5', '2016-07-28 00:00:00', null, 'qwfd', '64600
 INSERT INTO `stock_out` VALUES ('6', '2016-07-25 00:00:00', null, '12d21d21', '32300.00', '0.00', '32300.00', 'admin', '0000-00-00 00:00:00', null);
 INSERT INTO `stock_out` VALUES ('7', '2016-07-25 00:00:00', '5', 'asdf', '7429.00', '0.00', '7429.00', 'admin', '0000-00-00 00:00:00', null);
 INSERT INTO `stock_out` VALUES ('8', '2016-07-25 00:00:00', '2', 'sadg', '646.00', '0.00', '646.00', 'admin', '2016-07-25 16:00:20', null);
+INSERT INTO `stock_out` VALUES ('9', '2016-07-25 00:00:00', '3', 'sfasdf', '323000.00', '0.00', '323000.00', 'admin', '2016-07-25 16:40:13', null);
 
 -- ----------------------------
 -- Table structure for `stock_out_detail`
@@ -1313,7 +1329,7 @@ CREATE TABLE `stock_out_detail` (
   `total` decimal(15,2) DEFAULT NULL,
   `description` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of stock_out_detail
@@ -1328,6 +1344,7 @@ INSERT INTO `stock_out_detail` VALUES ('7', '5', '166', 'dsad', '200', '323.00',
 INSERT INTO `stock_out_detail` VALUES ('8', '6', '166', 'dsad', '100', '323.00', '32300.00', '');
 INSERT INTO `stock_out_detail` VALUES ('9', '7', '166', 'dsad', '23', '323.00', '7429.00', '');
 INSERT INTO `stock_out_detail` VALUES ('10', '8', '166', 'dsad', '2', '323.00', '646.00', '');
+INSERT INTO `stock_out_detail` VALUES ('11', '9', '166', 'dsad', '1000', '323.00', '323000.00', '');
 
 -- ----------------------------
 -- Table structure for `supplier_list`
@@ -1425,4 +1442,4 @@ CREATE TABLE `whos_online` (
 -- ----------------------------
 -- Records of whos_online
 -- ----------------------------
-INSERT INTO `whos_online` VALUES ('0', 'Guest', 'ib2qrfeumklvbdahtcg8sf3hm6', '', '1469438846', '1469438869', '/CCHR/api/VendorType/');
+INSERT INTO `whos_online` VALUES ('0', 'Guest', 'ib2qrfeumklvbdahtcg8sf3hm6', '', '1469438846', '1469440491', '/CCHR/api/Index');
