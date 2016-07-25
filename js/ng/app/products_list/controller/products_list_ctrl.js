@@ -12,7 +12,8 @@ app.controller(
                     $scope.productsList = data;
                     $scope.totalItems = data.count;
                 });
-                Restful.get('api/ProductType').success(function(data){
+                var params = {status: 'yes'};
+                Restful.get('api/ProductType', params).success(function(data){
                     $scope.ProductType = data;
                 });
             };
