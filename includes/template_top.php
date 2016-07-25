@@ -48,7 +48,7 @@ if (!tep_session_is_registered('id')) {
                         <i class="fa fa-bars icon"></i>
                     </button>
                     <ol class="breadcrumb navbar-breadcrumb">
-                        <li class="active">IMI Management System </li>
+                        <li class="active">CCHR Assignment </li>
                     </ol>
                     <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
                         <i class="fa fa-th icon"></i>
@@ -58,31 +58,10 @@ if (!tep_session_is_registered('id')) {
                     <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
                         <i class="fa fa-times icon"></i>
                     </button>
-                    <li class="dropdown danger">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <i class="fa fa-birthday-cake"></i>
-                            <?php echo $countBirthDay['count(*)'];?>
-                        </a>
-                        <ul class="dropdown-menu danger  animated fadeInDown">
-                            <li class="title">
-                                Notification <span class="badge pull-right"><?php echo $countBirthDay['count(*)'];?></span>
-                            </li>
-                            <li>
-                                <ul class="list-group notifications">
-                                    <a href="#/customer_birthday">
-                                        <li class="list-group-item">
-                                            <span class="badge"><?php echo $countBirthDay['count(*)'];?></span>
-                                            <i class="fa fa-birthday-cake"></i>
-                                            Customer Birthday
-                                        </li>
-                                    </a>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
                     <li class="dropdown profile">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <span id="user">
+                                <i class="fa fa-user"></i>
                                 <?php
                                     echo $_SESSION['user_name'];
                                 ?>
@@ -92,7 +71,8 @@ if (!tep_session_is_registered('id')) {
                         <ul class="dropdown-menu animated fadeInDown">
                             <li>
                                 <div class="profile-info">
-                                    <h4 class="username">
+                                    <h4 class="username" style="text-transform: uppercase;">
+                                        <i class="fa fa-user"></i>
                                         <?php
                                             echo $_SESSION['user_name'];
                                         ?>
@@ -103,12 +83,6 @@ if (!tep_session_is_registered('id')) {
                                         ?>
                                     </p>
                                     <div class="btn-group margin-bottom-2x" role="group">
-                                        <a href="#/setting">
-                                            <button type="button" class="btn btn-success">
-                                                <i class="fa fa-user"></i>
-                                                Profile
-                                            </button>
-                                        </a>
                                         <a href="logoff.php">
                                             <button type="button" class="btn btn-primary">
                                                 <i class="fa fa-sign-out"></i> Logout
@@ -128,7 +102,7 @@ if (!tep_session_is_registered('id')) {
                     <div class="navbar-header">
                         <a class="navbar-brand" href="#">
                             <div class="icon fa fa-paper-plane"></div>
-                            <div class="title">IMI Admin</div>
+                            <div class="title">CCHR Assignment</div>
                         </a>
                         <button type="button" class="navbar-expand-toggle pull-right visible-xs">
                             <i class="fa fa-times icon"></i>
@@ -154,46 +128,8 @@ if (!tep_session_is_registered('id')) {
                                         <li><a href="#/customer_balance">Customer Balance Report</a></li>
                                         <li><a href="#/received_payment">Customer Payment</a></li>
                                         <li><a href="#/account_receivable_summary">Customer Payment Report (A/R)</a></li>
-                                        <li><a href="#/service">Setup Service</a></li>
-                                        <li><a href="#/appointment">Appointment</a></li>
-                                        <li><a href="#/appointment_report">Appointment Report</a></li>
                                         <li><a href="#/create_invoice">Issue Invoice</a></li>
                                         <li><a href="#/report_invoice">Issue Invoice Report</a></li>
-                                        <li><a href="#/daily_case_report">Daily Case Report</a></li>
-<!--                                        <li><a href="#/account_payable">Account Payable Report</a></li>-->
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="panel panel-default dropdown">
-                            <a data-toggle="collapse" href="#dropdown-table">
-                                <span class="icon fa fa-table"></span><span class="title">Setup Staff</span>
-                            </a>
-                            <!-- Dropdown level 1 -->
-                            <div id="dropdown-table" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul class="nav navbar-nav">
-<!--                                        <li><a href="#/staff_type">Staff Type</a></li>-->
-                                        <li><a href="#/staff_list">Staff List</a></li>
-                                        <li><a href="#/staff_payroll">Staff Payroll</a></li>
-                                        <li><a href="#/staff_report">Staff Report</a></li>
-                                        <li><a href="#/payroll_report">Payroll Report</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="panel panel-default dropdown">
-                            <a data-toggle="collapse" href="#dropdown-doctor">
-                                <span class="icon fa fa-folder"></span><span class="title">Setup Doctor</span>
-                            </a>
-                            <!-- Dropdown level 1 -->
-                            <div id="dropdown-doctor" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="#/doctor_type">Doctor Type</a></li>
-                                        <li><a href="#/doctor_list">Doctor List</a></li>
-                                        <li><a href="#/doctor_expense">Doctor Expense</a></li>
-                                        <li><a href="#/doctor_report">Doctor Report</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -235,40 +171,6 @@ if (!tep_session_is_registered('id')) {
                                         <li><a href="#/stock_report">Stock Report</a></li>
 <!--                                        <li><a href="#/report_sale">Stock Out Report</a></li>-->
                                         <li><a href="#/report_sale_summary">Sale Summary Report</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- Dropdown-->
-                        <li class="panel panel-default dropdown">
-                            <a data-toggle="collapse" href="#dropdown-example">
-                                <span class="icon fa fa-slack"></span><span class="title">Report</span>
-                            </a>
-                            <!-- Dropdown level 1 -->
-                            <div id="dropdown-example" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="#/balance_sheet">Balance Sheet</a></li>
-                                        <li><a href="#/cash_flow">Cash Flow</a></li>
-                                        <li><a href="#/journal_report">Journal</a></li>
-                                        <li><a href="#/ledger_report">General Ledger</a></li>
-                                        <li><a href="#/income_statement">Income Statement</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- Dropdown-->
-                        <li class="panel panel-default dropdown">
-                            <a data-toggle="collapse" href="#dropdown-icon">
-                                <span class="icon fa fa-archive"></span><span class="title">Accounting</span>
-                            </a>
-                            <!-- Dropdown level 1 -->
-                            <div id="dropdown-icon" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="#/account_type">Account Type</a></li>
-                                        <li><a href="#/chart_account">Chart Account</a></li>
-                                        <li><a href="#/journal_entry">Journal Entry</a></li>
                                     </ul>
                                 </div>
                             </div>
